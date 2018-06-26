@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright 2018-present Open Networking Foundation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!ELEMENT manifest (notice?,
+                    remote*,
+                    default?,
+                    manifest-server?,
+                    remove-project*,
+                    project*,
+                    extend-project*,
+                    repo-hooks?)>
+<!ELEMENT notice (#PCDATA)>
+<!ELEMENT remote EMPTY>
+<!ATTLIST remote name         ID    #REQUIRED>
+<!ATTLIST remote alias        CDATA #IMPLIED>
+<!ATTLIST remote fetch        CDATA #REQUIRED>
+<!ATTLIST remote pushurl      CDATA #IMPLIED>
+<!ATTLIST remote review       CDATA #IMPLIED>
+<!ATTLIST remote revision     CDATA #IMPLIED>
+<!ELEMENT default EMPTY>
+<!ATTLIST default remote      IDREF #IMPLIED>
+<!ATTLIST default revision    CDATA #IMPLIED>
+<!ATTLIST default dest-branch CDATA #IMPLIED>
+<!ATTLIST default sync-j      CDATA #IMPLIED>
+<!ATTLIST default sync-c      CDATA #IMPLIED>
+<!ATTLIST default sync-s      CDATA #IMPLIED>
+<!ELEMENT manifest-server EMPTY>
+<!ATTLIST manifest-server url CDATA #REQUIRED>
+<!ELEMENT project (annotation*,
+                   project*,
+                   copyfile*,
+                   linkfile*)>
+<!ATTLIST project name        CDATA #REQUIRED>
+<!ATTLIST project path        CDATA #IMPLIED>
+<!ATTLIST project remote      IDREF #IMPLIED>
+<!ATTLIST project revision    CDATA #IMPLIED>
+<!ATTLIST project dest-branch CDATA #IMPLIED>
+<!ATTLIST project groups      CDATA #IMPLIED>
+<!ATTLIST project sync-c      CDATA #IMPLIED>
+<!ATTLIST project sync-s      CDATA #IMPLIED>
+<!ATTLIST project upstream CDATA #IMPLIED>
+<!ATTLIST project clone-depth CDATA #IMPLIED>
+<!ATTLIST project force-path CDATA #IMPLIED>
+<!ELEMENT annotation EMPTY>
+<!ATTLIST annotation name  CDATA #REQUIRED>
+<!ATTLIST annotation value CDATA #REQUIRED>
+<!ATTLIST annotation keep  CDATA "true">
+<!ELEMENT copyfile EMPTY>
+<!ATTLIST copyfile src  CDATA #REQUIRED>
+<!ATTLIST copyfile dest CDATA #REQUIRED>
+<!ELEMENT linkfile EMPTY>
+<!ATTLIST linkfile src CDATA #REQUIRED>
+<!ATTLIST linkfile dest CDATA #REQUIRED>
+<!ELEMENT extend-project EMPTY>
+<!ATTLIST extend-project name CDATA #REQUIRED>
+<!ATTLIST extend-project path CDATA #IMPLIED>
+<!ATTLIST extend-project groups CDATA #IMPLIED>
+<!ELEMENT remove-project EMPTY>
+<!ATTLIST remove-project name  CDATA #REQUIRED>
+<!ELEMENT repo-hooks EMPTY>
+<!ATTLIST repo-hooks in-project CDATA #REQUIRED>
+<!ATTLIST repo-hooks enabled-list CDATA #REQUIRED>
+<!ELEMENT include EMPTY>
+<!ATTLIST include name CDATA #REQUIRED>
