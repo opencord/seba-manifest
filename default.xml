@@ -26,5 +26,6 @@ limitations under the License.
 
   <project path="seba" name="seba"/>
   <project path="automation-tools" name="automation-tools"/>
+  <project path="projects/ves-agent" name="ves-agent"/>
 
 </manifest>
